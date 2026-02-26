@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdad o Reto - Para Parejas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de Inicio -->
+        <div id="startScreen" class="screen active">
+            <div class="welcome-box">
+                <h1>💕 Verdad o Reto</h1>
+                <p>Un juego para parejas</p>
+                <div class="input-group">
+                    <input type="text" id="player1Name" placeholder="Nombre jugador 1" maxlength="20">
+                    <input type="text" id="player2Name" placeholder="Nombre jugador 2" maxlength="20">
+                </div>
+                <button onclick="startGame()" class="btn btn-primary">Empezar Juego</button>
+            </div>
+        </div>
+
+        <!-- Pantalla Principal del Juego -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="player-info">
+                    <span id="currentPlayer" class="current-player">Jugador 1</span>
+                    <span class="turn-indicator">Tu turno</span>
+                </div>
+                <button onclick="resetGame()" class="btn btn-small">Nuevo Juego</button>
+            </div>
+
+            <div class="game-content">
+                <!-- Sección de Pregunta/Reto -->
+                <div class="question-box">
+                    <div class="question-type" id="questionType">VERDAD</div>
+                    <div class="question-text" id="questionText">
+                        Selecciona Verdad o Reto para comenzar
+                    </div>
+                </div>
+
+                <!-- Botones de Verdad/Reto -->
+                <div class="button-group">
+                    <button onclick="selectTruth()" class="btn btn-truth">
+                        💭 VERDAD
+                    </button>
+                    <button onclick="selectChallenge()" class="btn btn-challenge">
+                        ⚡ RETO
+                    </button>
+                </div>
+
+                <!-- Botón de Siguiente Turno -->
+                <button onclick="nextTurn()" class="btn btn-next">
+                    ➜ Siguiente Turno
+                </button>
+            </div>
+
+            <!-- Chat Section -->
+            <div class="chat-container">
+                <div class="chat-header">💬 Chat</div>
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input-group">
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="Escribe un mensaje..." 
+                        maxlength="100"
+                        onkeypress="handleMessageKeyPress(event)"
+                    >
+                    <button onclick="sendMessage()" class="btn btn-chat">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
